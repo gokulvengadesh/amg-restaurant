@@ -36,18 +36,17 @@
       align-items: center;
       text-align: center;
       padding: 2rem;
-      animation: fadeIn 1.2s ease-out;
+      opacity: 0;
+      transform: translateY(50px);
     }
     .hero h1 {
       font-size: 3rem;
       color: #fff;
-      animation: slideInDown 1s ease forwards;
     }
     .hero p {
       color: #fff;
       font-size: 1.2rem;
       margin-top: 1rem;
-      animation: fadeIn 1.5s ease;
     }
     .btn-primary {
       margin-top: 2rem;
@@ -58,7 +57,6 @@
       font-weight: 600;
       box-shadow: 0 8px 24px rgba(0,0,0,0.15);
       transition: 0.3s ease;
-      animation: zoomIn 1.6s ease;
     }
     .btn-primary:hover {
       transform: scale(1.05);
@@ -94,7 +92,13 @@
       text-align: center;
       max-width: 1200px;
       margin: auto;
-      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.8s ease;
     }
     .section h2 {
       font-size: 2.5rem;
@@ -137,7 +141,7 @@
       color: #b83b5e;
     }
 
-    /* Contact */
+    /* Contact Form */
     .contact-form {
       max-width: 600px;
       margin: 2rem auto 0;
@@ -175,25 +179,11 @@
       background-color: #f2f2f2;
       color: #777;
     }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideInDown {
-      from { transform: translateY(-50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes zoomIn {
-      from { transform: scale(0.9); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
   </style>
 </head>
 <body>
 
-  <header class="hero">
+  <header class="hero" id="hero">
     <h1>AMG Restaurant 🍽️</h1>
     <p>Flavors from India, Italy & Mexico fused to perfection</p>
     <a href="#menu" class="btn-primary">Explore Showcase</a>
@@ -225,7 +215,7 @@
           <p>Italian classic with velvety white sauce and herbs.</p>
         </div>
         <div class="card">
-          <h3>Beef Tacos 🌮</h3>
+          <h3>Beef Tacos 🌮️</h3>
           <p>Crunchy, zesty tacos with perfectly seasoned beef.</p>
         </div>
       </div>
@@ -245,6 +235,27 @@
   <footer class="footer">
     <p>&copy; 2025 AMG Restaurant — A Creative Culinary Portfolio</p>
   </footer>
+
+  <script>
+    // Fade-in hero section
+    window.addEventListener('load', () => {
+      document.getElementById('hero').style.opacity = 1;
+      document.getElementById('hero').style.transform = 'translateY(0)';
+    });
+
+    // Scroll animations
+    const sections = document.querySelectorAll('.section');
+    const revealSection = () => {
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          section.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealSection);
+    window.addEventListener('load', revealSection);
+  </script>
 
 </body>
 </html>
