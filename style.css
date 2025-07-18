@@ -1,65 +1,149 @@
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
-  line-height: 1.6;
-  background: #fffaf0;
+  background: #fffdf8;
   color: #333;
+  line-height: 1.7;
+  animation: fadeIn 1s ease-in;
 }
 
+/* Header */
 header {
-  background-color: #e74c3c;
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
   color: white;
-  padding: 1rem;
+  padding: 1.5rem;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  animation: slideDown 1s ease-out;
 }
 
+/* Nav */
 nav ul {
   display: flex;
   justify-content: center;
   list-style: none;
   margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 nav ul li {
-  margin: 0 1rem;
+  margin: 0.5rem 1rem;
 }
 
 nav ul li a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: background 0.3s;
 }
 
+nav ul li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Sections */
 section {
-  padding: 2rem;
-  max-width: 800px;
+  padding: 3rem 1rem;
+  max-width: 900px;
   margin: auto;
+  background: white;
+  margin-top: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  animation: fadeInUp 1.2s ease;
 }
 
 section h2 {
   margin-bottom: 1rem;
   color: #e74c3c;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #e74c3c;
+  display: inline-block;
+  padding-bottom: 0.3rem;
 }
 
+section ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+}
+
+section ul li {
+  margin-bottom: 0.7rem;
+  font-weight: 500;
+}
+
+/* Contact */
+#contact p {
+  font-size: 1rem;
+  margin: 0.4rem 0;
+}
+
+/* Footer */
 footer {
   text-align: center;
-  padding: 1rem;
-  background: #eee;
-  margin-top: 2rem;
+  padding: 1.2rem;
+  background: #f7f7f7;
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   nav ul {
     flex-direction: column;
+    align-items: center;
   }
 
   nav ul li {
-    margin: 0.5rem 0;
+    margin: 0.4rem 0;
+  }
+
+  section {
+    margin: 1rem;
+  }
+
+  section h2 {
+    font-size: 1.4rem;
   }
 }
