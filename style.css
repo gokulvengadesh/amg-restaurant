@@ -1,21 +1,26 @@
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
 }
 
 body {
+  font-family: 'Segoe UI', sans-serif;
   line-height: 1.6;
   background: #fffaf0;
   color: #333;
+  scroll-behavior: smooth;
 }
 
+/* Header */
 header {
-  background-color: #e74c3c;
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
   color: white;
-  padding: 1rem;
+  padding: 2rem 1rem;
   text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  animation: fadeInDown 1s ease-out;
 }
 
 nav ul {
@@ -23,6 +28,7 @@ nav ul {
   justify-content: center;
   list-style: none;
   margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 nav ul li {
@@ -32,34 +38,98 @@ nav ul li {
 nav ul li a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
+nav ul li a:hover {
+  color: #fdd835;
+}
+
+/* Sections */
 section {
-  padding: 2rem;
-  max-width: 800px;
+  padding: 3rem 1rem;
+  max-width: 900px;
   margin: auto;
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
 }
 
 section h2 {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   color: #e74c3c;
+  font-size: 2rem;
+  border-left: 5px solid #e74c3c;
+  padding-left: 10px;
 }
 
+.menu-list li {
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+/* Footer */
 footer {
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem;
   background: #eee;
-  margin-top: 2rem;
+  margin-top: 3rem;
+  color: #555;
+  font-size: 0.9rem;
+  animation: fadeInUp 1s ease-out;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInDown {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeInUp {
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+.slide-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+.delay {
+  animation-delay: 0.5s;
+}
+
+.delay-2 {
+  animation-delay: 1s;
+}
+
+.fade-in-down {
+  animation: fadeInDown 1s ease forwards;
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   nav ul {
     flex-direction: column;
   }
 
   nav ul li {
     margin: 0.5rem 0;
+  }
+
+  section {
+    padding: 2rem 1rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
   }
 }
