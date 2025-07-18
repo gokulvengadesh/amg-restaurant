@@ -3,15 +3,200 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AMG Restaurant Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>AMG Restaurant | Portfolio Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      font-family: 'Poppins', sans-serif;
+      background: #fefefe;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    ul { list-style: none; }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, #ff6e7f 0%, #bfe9ff 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      animation: fadeIn 1.2s ease-out;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      color: #fff;
+      animation: slideInDown 1s ease forwards;
+    }
+    .hero p {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      animation: fadeIn 1.5s ease;
+    }
+    .btn-primary {
+      margin-top: 2rem;
+      background: #fff;
+      color: #ff6e7f;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      transition: 0.3s ease;
+      animation: zoomIn 1.6s ease;
+    }
+    .btn-primary:hover {
+      transform: scale(1.05);
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      background: white;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    .navbar ul {
+      display: flex;
+      gap: 2rem;
+    }
+    .navbar a {
+      font-weight: 600;
+      color: #ff6e7f;
+      transition: 0.3s ease;
+    }
+    .navbar a:hover {
+      color: #b83b5e;
+    }
+
+    /* Sections */
+    .section {
+      padding: 5rem 2rem;
+      text-align: center;
+      max-width: 1200px;
+      margin: auto;
+      animation: fadeIn 1s ease forwards;
+    }
+    .section h2 {
+      font-size: 2.5rem;
+      color: #ff6e7f;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .section h2::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: #ff6e7f;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Card Grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+    .card h3 {
+      margin-bottom: 1rem;
+      color: #b83b5e;
+    }
+
+    /* Contact */
+    .contact-form {
+      max-width: 600px;
+      margin: 2rem auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    .contact-form button {
+      background: #ff6e7f;
+      color: #fff;
+      border: none;
+      padding: 1rem;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .contact-form button:hover {
+      background: #b83b5e;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      background-color: #f2f2f2;
+      color: #777;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideInDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
 </head>
 <body>
 
   <header class="hero">
-    <h1 class="hero-title">AMG Restaurant 🍽️</h1>
-    <p class="hero-tagline">Flavors of the World on One Plate</p>
-    <a href="#menu" class="btn-primary">Explore Menu</a>
+    <h1>AMG Restaurant 🍽️</h1>
+    <p>Flavors from India, Italy & Mexico fused to perfection</p>
+    <a href="#menu" class="btn-primary">Explore Showcase</a>
   </header>
 
   <nav class="navbar">
@@ -25,7 +210,7 @@
   <main>
     <section id="about" class="section">
       <h2>About AMG</h2>
-      <p>We’re a fusion restaurant blending the best of Indian 🇮🇳, Italian 🇮🇹, and Mexican 🇲🇽 cuisines. Whether you're here for spicy curries, creamy pastas, or zesty tacos — we've got you covered!</p>
+      <p>AMG is not just a restaurant, it's a journey across three continents. We're all about blending spices, sauces, and stories to serve you unforgettable dishes — every time.</p>
     </section>
 
     <section id="menu" class="section">
@@ -33,32 +218,32 @@
       <div class="card-grid">
         <div class="card">
           <h3>Chicken Tikka Masala 🌶️</h3>
-          <p>Rich, spicy, and unforgettable – a North Indian classic.</p>
+          <p>Rich, spiced curry from India with creamy tomato base.</p>
         </div>
         <div class="card">
           <h3>Spaghetti Alfredo 🍝</h3>
-          <p>Creamy Italian comfort with a touch of gourmet finesse.</p>
+          <p>Italian classic with velvety white sauce and herbs.</p>
         </div>
         <div class="card">
           <h3>Beef Tacos 🌮</h3>
-          <p>A Mexican favorite with a bold and tangy twist.</p>
+          <p>Crunchy, zesty tacos with perfectly seasoned beef.</p>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section contact-section">
-      <h2>Contact Us</h2>
+    <section id="contact" class="section">
+      <h2>Contact</h2>
       <form class="contact-form">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn-primary">Send Message</button>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
       </form>
     </section>
   </main>
 
   <footer class="footer">
-    <p>&copy; 2025 AMG Restaurant. Designed as a portfolio showcase.</p>
+    <p>&copy; 2025 AMG Restaurant — A Creative Culinary Portfolio</p>
   </footer>
 
 </body>
