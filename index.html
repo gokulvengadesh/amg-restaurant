@@ -3,72 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AMG Restaurant</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Portfolio Modal Focus</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>AMG Restaurant 🍽️</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#menu">Our Menu</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<div class="container py-5">
+  <h1 class="text-center mb-5">💼 My Portfolio</h1>
 
-  <!-- About -->
-  <section id="about" class="reveal">
-    <h2>🌍 About Us</h2>
-    <p>Welcome to AMG Restaurant, where global flavors come together on one plate! We serve a delicious fusion of 🇮🇳 Indian, 🇮🇹 Italian, and 🇲🇽 Mexican cuisine.</p>
-    <p>Spicy curries 🌶️, creamy pastas 🍝, zesty tacos 🌮 – we’ve got it all! Fresh ingredients 🥬 and a whole lot of love ❤️ in every bite.</p>
-    <p>Perfect for family dinners 👨‍👩‍👧, date nights 💕, or casual get-togethers 🎊. Come hungry, leave happy 😋 – that’s the AMG promise!</p>
-  </section>
+  <div class="row g-4 justify-content-center">
+    <!-- Project Card -->
+    <div class="col-md-4">
+      <a href="#modal1" class="portfolio-card" tabindex="0">
+        <div class="card h-100 shadow hover-card">
+          <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project 1">
+          <div class="card-body">
+            <h5 class="card-title">Project One</h5>
+            <p class="card-text">Modern UI Website</p>
+          </div>
+        </div>
+      </a>
+    </div>
 
-  <!-- Menu -->
-  <section id="menu" class="reveal">
-    <h2>🍴 Our Menu (Sample)</h2>
-    <ul>
-      <li>Chicken Tikka Masala 🌶️</li>
-      <li>Spaghetti Alfredo 🍝</li>
-      <li>Beef Tacos 🌮</li>
-    </ul>
-  </section>
+    <!-- Repeat -->
+    <div class="col-md-4">
+      <a href="#modal2" class="portfolio-card" tabindex="0">
+        <div class="card h-100 shadow hover-card">
+          <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project 2">
+          <div class="card-body">
+            <h5 class="card-title">Project Two</h5>
+            <p class="card-text">Mobile App UI</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
 
-  <!-- Contact -->
-  <section id="contact" class="reveal">
-    <h2>📞 Contact Us</h2>
-    <p>Email: contact@amgrestaurant.com</p>
-    <p>Phone: +91 98765 43210</p>
-  </section>
+<!-- Modals (focus-based) -->
+<div id="modal1" tabindex="-1" class="portfolio-modal" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content p-4">
+      <button class="btn-close ms-auto" onclick="closeModal(this)"></button>
+      <h2>Project One</h2>
+      <p>This is a responsive UI site built with Bootstrap and modern animation.</p>
+      <img src="https://via.placeholder.com/800x400" class="img-fluid rounded shadow" alt="Project One">
+    </div>
+  </div>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 AMG Restaurant. All rights reserved.</p>
-  </footer>
+<div id="modal2" tabindex="-1" class="portfolio-modal" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content p-4">
+      <button class="btn-close ms-auto" onclick="closeModal(this)"></button>
+      <h2>Project Two</h2>
+      <p>Cross-platform mobile UI built using React Native and Figma designs.</p>
+      <img src="https://via.placeholder.com/800x400" class="img-fluid rounded shadow" alt="Project Two">
+    </div>
+  </div>
+</div>
 
-  <!-- JS for scroll reveal -->
-  <script>
-    const sections = document.querySelectorAll("section");
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Close modal by resetting focus
+  function closeModal(btn) {
+    btn.closest('.portfolio-modal').blur();
+  }
 
-    function revealOnScroll() {
-      const triggerBottom = window.innerHeight * 0.85;
-      sections.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-        if (top < triggerBottom) {
-          section.classList.add("reveal");
-        } else {
-          section.classList.remove("reveal");
-        }
-      });
+  // Close modal when pressing Esc
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document.activeElement.blur();
     }
-
-    window.addEventListener("scroll", revealOnScroll);
-    window.addEventListener("load", revealOnScroll);
-  </script>
+  });
+</script>
 
 </body>
 </html>
