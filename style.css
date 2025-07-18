@@ -23,7 +23,7 @@ header {
   top: 0;
   z-index: 1000;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  animation: slideDown 0.8s ease-in-out;
+  animation: slideDown 0.9s ease-in-out;
 }
 
 /* Navigation */
@@ -43,40 +43,49 @@ nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 30px;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 
 nav ul li a:hover {
   background: rgba(255, 255, 255, 0.25);
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 /* Sections */
 section {
-  padding: 3rem 1rem;
-  max-width: 900px;
+  padding: 3.5rem 1.5rem;
+  max-width: 950px;
   margin: 3rem auto;
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-  scroll-margin-top: 120px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  scroll-margin-top: 130px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.9s ease;
 }
 
-/* Section headings */
+/* Section animation trigger */
+section.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section titles */
 section h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
   color: #e74c3c;
   border-bottom: 2px solid #e74c3c;
   display: inline-block;
-  padding-bottom: 0.3rem;
+  padding-bottom: 0.4rem;
 }
 
 /* Lists */
 section ul {
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   padding-left: 1.5rem;
 }
 
@@ -85,10 +94,10 @@ section ul li {
   font-weight: 500;
 }
 
-/* Contact paragraph */
+/* Contact */
 #contact p {
   font-size: 1rem;
-  margin: 0.4rem 0;
+  margin: 0.5rem 0;
 }
 
 /* Footer */
@@ -99,24 +108,13 @@ footer {
   color: #777;
   font-size: 0.9rem;
   margin-top: 3rem;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Scroll animation styles */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease-out;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Keyframe animations */
+/* Animations */
 @keyframes slideDown {
   from {
-    transform: translateY(-40px);
+    transform: translateY(-50px);
     opacity: 0;
   }
   to {
@@ -125,7 +123,7 @@ footer {
   }
 }
 
-/* Responsive for tablets & mobile */
+/* Responsive */
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -138,6 +136,7 @@ footer {
 
   section {
     margin: 1.5rem;
+    padding: 2.5rem 1.2rem;
   }
 
   section h2 {
